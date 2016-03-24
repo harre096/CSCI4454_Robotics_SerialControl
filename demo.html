@@ -19,7 +19,7 @@
 	<div class="col-sm-3 controls">
 			<!-- Close Server -->
 			<div class="col-sm-12 col-xs-6">
-				<form name="robotForm" method=post onsubmit="checkForm()">
+				<form name="robotForm" method=post>
 					<input type="hidden" name="Terminate" value="on">
 					<input id="closePort" type="submit" class="btn btn-danger btn-block" value="Close Port Server">
 				</form>
@@ -55,7 +55,7 @@
 		</div>
 		<!-- Motor Speed -->
 		<div class="col-md-6 col-md-offset-3">
-				<form name="robotForm" id="changeSpeedForm" method=post onsubmit="checkForm()">
+				<form name="robotForm" id="changeSpeedForm" method=post>
 					<input id="speedInputShell" class="form-control" type="text" placeholder="Input Motor Speed">
 					<input id="speedInput" name="Motor" type="text" class="hidden">
 				</form>
