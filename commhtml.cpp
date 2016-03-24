@@ -172,7 +172,7 @@ void HTMLShowMotorSpeed(const char* ms)
   char HTMLStringa[100];
   char HTMLString2[300];
   char HTMLEOL[2]={0x0d,0x0a};
-  sprintf(HTMLString2,"<html><head><title>Motor Speed</title></head><body><h1>Motor Speed Reset</h1>Current Motor Speed is %s</p><a href=\"127.0.0.1:56267\">Return</a><script>localStorage.setItem(\"Motor\",%s)</script></body></html>",ms,ms);
+  sprintf(HTMLString2,"%s",ms);
   int workingLength=strlen(HTMLString2);
   sprintf(HTMLStringa,"Content-Length: %d",workingLength);
   printf("Sending %d byte response\n",workingLength);

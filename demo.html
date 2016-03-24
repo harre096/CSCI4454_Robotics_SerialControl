@@ -1,15 +1,89 @@
 <html>
   <head>
+		<meta charset="UTF-8">
     <title>Testing</title>
   </head>
-  <body onload="initializeForm()">
-    <h1>Hello</h1>
-    <form name="robotForm" method=post onsubmit="checkForm()">
-      ComPort:<input type="text" name="Port"><br>
-      Motor Speed:<input type="text" name="Motor"><br>
-      <input type="checkbox" name="Terminate">Close Port Server<br>
-      <input type="submit" value="Open">
-    </form>
+  <body>
+		<style>
+
+
+		</style>
+
+<div class="container">
+	<div class="text-center jumbotron">
+		<h1>MSP Serial Interface</h1>
+	</div>
+
+
+
+	<div class="col-sm-3 controls">
+			<!-- Close Server -->
+			<div class="col-sm-12 col-xs-6">
+				<form name="robotForm" method=post onsubmit="checkForm()">
+					<input type="hidden" name="Terminate" value="on">
+					<input id="closePort" type="submit" class="btn btn-danger btn-block" value="Close Port Server">
+				</form>
+			</div>
+
+			<!-- ComPort-->
+			<div class="col-xs-12">
+				<form name="robotForm" id="robotForm" class="input-group" method=post">
+					<div class="input-group">
+						<input id="portInput" class="form-control" type="text" name="Port"
+							placeholder="Change ComPort">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+							</button>
+						</span>
+					</div>
+				</form>
+			</div>
+	</div>
+
+
+
+  <div class="col-sm-9">
+		<div class="row text-center">
+				<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(8)">8</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(9)">9</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(a)">a</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(8)">8</button>
+
+				</div>
+		</div>
+		<!-- Motor Speed -->
+		<div class="col-md-6 col-md-offset-3">
+				<form name="robotForm" id="changeSpeedForm" method=post onsubmit="checkForm()">
+					<input id="speedInputShell" class="form-control" type="text" placeholder="Input Motor Speed">
+					<input id="speedInput" name="Motor" type="text" class="hidden">
+				</form>
+
+				<div class="text-center">
+					<button class="btn btn-default text-center" onclick="changeMotorSpeedManual()">Change Motor Speed</button> 
+				</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- Latest compiled and minified jQuery (used for ajax) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
     <script>
     </script>
   </body>

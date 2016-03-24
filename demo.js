@@ -1,18 +1,42 @@
-function checkForm() {
-    if(document.forms["robotForm"]["Port"].value==localStorage.getItem("Port"))
-    {
-	document.forms["robotForm"]["Port"].value="";
-    }
-    if(document.forms["robotForm"]["Terminate"].value=="on")
-    {
-	localStorage.removeItem("Port");
-	localStorage.removeItem("Motor");
-    }
-    else
-	window.alert(document.forms["robotForm"]["Terminate"].value);
+function changeMotorSpeed(newVal){
+		//set value in hidden form (hacky)
+		$("#speedInput").val(newVal);
+		//run ajax command
+		var form = $('#changeSpeedForm')
+		$.ajax( {
+				type: "POST",
+				url: form.attr( 'action' ),
+				data: form.serialize(),
+				success: function( response ) {
+				  console.log( response );
+				}
+			});
 }
 
-function initializeForm() {
-    document.forms["robotForm"]["Port"].value=localStorage.getItem("Port")||"";
-    document.forms["robotForm"]["Motor"].value=parseInt(localStorage.getItem("Motor"),10).toString(16)||"";
+function changeMotorSpeedManual(){
+	changeMotorSpeed($("#speedInputShell").val())
+	console.log($("#speedInputShell").val())
 }
+
+$(document).ready( function() {
+
+//submit motor change
+var form = $('#changeSpeed');
+
+$("#changeMotorSpeed").click(function() {
+  
+});
+
+//makes it so pressing enter on "clicks" submit
+$('#speedInput').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+	{
+		$('#changeMotorSpeed').click();
+		return false;  
+	}
+});   
+
+});
+
+
