@@ -27,7 +27,7 @@
 
 			<!-- ComPort-->
 			<div class="col-xs-12">
-				<form name="robotForm" id="robotForm" class="input-group" method=post">
+				<form name="robotForm" id="comPortForm" class="input-group" method="post">
 					<div class="input-group">
 						<input id="portInput" class="form-control" type="text" name="Port"
 							placeholder="Change ComPort">
@@ -39,6 +39,17 @@
 					</div>
 				</form>
 			</div>
+
+		<div class="col-md-6">
+			<b>ComPort:</b>
+			<div id="comPortDisp" class="well">...</div>
+		</div>
+
+		<div class="col-md-6">
+			<b>Motor Speed:</b>
+			<div id="motorDisp" class="well">...</div>
+		</div>
+
 	</div>
 
 
@@ -48,14 +59,20 @@
 				<div class="btn-group" role="group" aria-label="Basic example">
 				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(8)">8</button>
 				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(9)">9</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(a)">a</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(8)">8</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('A')">A</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('B')">B</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('C')">C</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('D')">D</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('E')">E</button>
+				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('F')">F</button>
 
 				</div>
 		</div>
+<br>
 		<!-- Motor Speed -->
+		<div class="row text-center">
 		<div class="col-md-6 col-md-offset-3">
-				<form name="robotForm" id="changeSpeedForm" method=post>
+				<form name="robotForm" id="changeSpeedForm" method="post">
 					<input id="speedInputShell" class="form-control" type="text" placeholder="Input Motor Speed">
 					<input id="speedInput" name="Motor" type="text" class="hidden">
 				</form>
@@ -63,9 +80,10 @@
 				<div class="text-center">
 					<button class="btn btn-default text-center" onclick="changeMotorSpeedManual()">Change Motor Speed</button> 
 				</div>
-		</div>
-	</div>
 
+		</div>
+				</div>
+	</div>
 
 
 
