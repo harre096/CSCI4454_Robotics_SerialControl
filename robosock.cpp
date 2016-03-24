@@ -296,7 +296,7 @@ int socketRequested(void)
   struct timeval socketTimeout={1,0};
   FD_ZERO(&socketSet);
   FD_SET((SOCKET)roboSock,&socketSet);
-  printf("In socketRequested  roboSock is %d\n",roboSock);fflush(stdout);
+  //printf("In socketRequested  roboSock is %d\n",roboSock);fflush(stdout);
   int selRet=select(roboSock+1,&socketSet,NULL,NULL,&socketTimeout);
   if(selRet==SOCKET_ERROR)
   {

@@ -72,7 +72,7 @@ int ReadComPort(int portHandle,int nbx,unsigned char* wbuff)
   while(bytesRead<nbx)
   {
   	res=ioctl(portHandle,FIONREAD,&bytesRead);
-        printf("Read %d bytes of expected %d from port %d  Return status is %d\n",bytesRead,nbx,portHandle,res);
+//        printf("Read %d bytes of expected %d from port %d  Return status is %d\n",bytesRead,nbx,portHandle,res);
   }
   int nbRead=read(portHandle,wbuff,nbx);
   wbuff[nbx]=0;
