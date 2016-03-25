@@ -1,8 +1,8 @@
-function setDefaultPort(){
+function setPort(newVal){
 		//set value in hidden form (hacky)
-		$("#portInput").val("0");
+		$("#portInput").val(newVal);
 		//run ajax command
-		var form = $('#comPortForm')
+		var form = $('#genericForm')
 		$.ajax( {
 				type: "POST",
 				url: form.attr( 'action' ),
@@ -14,11 +14,11 @@ function setDefaultPort(){
 };
 
 
-function changeMotorSpeed(newVal){
+function setMotorSpeed(newVal){
 		//set value in hidden form (hacky)
 		$("#speedInput").val(newVal);
 		//run ajax command
-		var form = $('#changeSpeedForm')
+		var form = $('#genericForm')
 		$.ajax( {
 				type: "POST",
 				url: form.attr( 'action' ),
@@ -30,18 +30,36 @@ function changeMotorSpeed(newVal){
 			});
 }
 
+function closePortServer(){
+		//set value in hidden form (hacky)
+		$("#terminateInput").val("1");
+		//run ajax command
+		var form = $('#genericForm')
+		$.ajax( {
+				type: "POST",
+				url: form.attr( 'action' ),
+				data: form.serialize(),
+				success: function( res ) {
+					console.log( "portClosed" );
+				}
+			});
+}
 
-function changeMotorSpeedManual(){
-	changeMotorSpeed($("#speedInputShell").val())
+
+function setMotorSpeedManual(){
+	setMotorSpeed($("#speedInputShell").val())
 	console.log($("#speedInputShell").val())
 }
+function setPortManual(){
+	setPort($("#portInput").val())
+	console.log($("#speedInputShell").val())
+}
+
 
 $(document).ready( function() {
 
 //init stuff
-setDefaultPort();
-$('#comPortDisp').text(localStorage.getItem("Port")||"");
-
+setPort("0");
 
 
 //make change motor button work

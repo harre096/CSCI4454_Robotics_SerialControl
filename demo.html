@@ -14,30 +14,32 @@
 		<h1>MSP Serial Interface</h1>
 	</div>
 
-
+				<form id="genericForm" name="robotForm" method="post" type="hidden">
+					<input id="portInput" name="Port" type="text" class="hidden">
+					<input id="speedInput" name="Motor" type="text" class="hidden">
+					<input id="terminateInput" name="Terminate" class="hidden">
+					<input type="reset" value="Reset Form">
+				</form>
 
 	<div class="col-sm-3 controls">
 			<!-- Close Server -->
 			<div class="col-sm-12 col-xs-6">
-				<form name="robotForm" method=post>
-					<input type="hidden" name="Terminate" value="on">
-					<input id="closePort" type="submit" class="btn btn-danger btn-block" value="Close Port Server">
-				</form>
+					<input onclick="closePortServer()" class="btn btn-danger btn-block" 
+						value="Close Port Server">
 			</div>
 
 			<!-- ComPort-->
 			<div class="col-xs-12">
-				<form name="robotForm" id="comPortForm" class="input-group" method="post">
 					<div class="input-group">
-						<input id="portInput" class="form-control" type="text" name="Port"
-							placeholder="Change ComPort">
+						<input id="portInput" class="form-control" type="text">
+
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">
+							<button class="btn btn-default" onclick="setPortManual">
 								&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
 							</button>
 						</span>
+
 					</div>
-				</form>
 			</div>
 
 		<div class="col-md-6">
@@ -57,14 +59,14 @@
   <div class="col-sm-9">
 		<div class="row text-center">
 				<div class="btn-group" role="group" aria-label="Basic example">
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(8)">8</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed(9)">9</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('A')">A</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('B')">B</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('C')">C</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('D')">D</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('E')">E</button>
-				<button type="button" class="btn btn-secondary" onclick="changeMotorSpeed('F')">F</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed(8)">8</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed(9)">9</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('A')">A</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('B')">B</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('C')">C</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('D')">D</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('E')">E</button>
+				<button type="button" class="btn btn-secondary" onclick="setMotorSpeed('F')">F</button>
 
 				</div>
 		</div>
@@ -72,13 +74,9 @@
 		<!-- Motor Speed -->
 		<div class="row text-center">
 		<div class="col-md-6 col-md-offset-3">
-				<form name="robotForm" id="changeSpeedForm" method="post">
 					<input id="speedInputShell" class="form-control" type="text" placeholder="Input Motor Speed">
-					<input id="speedInput" name="Motor" type="text" class="hidden">
-				</form>
-
 				<div class="text-center">
-					<button class="btn btn-default text-center" onclick="changeMotorSpeedManual()">Change Motor Speed</button> 
+					<button class="btn btn-default" onclick="setMotorSpeedManual()">Change Motor Speed</button> 
 				</div>
 
 		</div>
